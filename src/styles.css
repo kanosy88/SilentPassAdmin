@@ -1,0 +1,32 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: rgba(73, 88, 88, 0.644);
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  margin-left: 10px;
+}
+
+#AccountType {
+  color: rgb(96, 197, 223);
+}
+
+#User {
+  color: green;
+}
+
+#Email {
+  color: orange;
+}
+
+#Password {
+  color: orange;
+}
