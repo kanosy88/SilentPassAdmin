@@ -9,12 +9,9 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
-  TableCaption,
-  Box,
   TableContainer
 } from "@chakra-ui/react";
 import { createClient } from "@supabase/supabase-js";
