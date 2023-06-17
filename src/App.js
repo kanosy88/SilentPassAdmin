@@ -15,7 +15,7 @@ import {
   Td,
   TableCaption,
   Box,
-  TableContainer
+  TableContainer,
 } from "@chakra-ui/react";
 import { createClient } from "@supabase/supabase-js";
 
@@ -91,12 +91,6 @@ export default function App() {
           <Button colorScheme="blue" onClick={fetchAccountList}>
             Charger les Comptes
           </Button>
-          <h1>Votre Compte</h1>
-          <h2>{Account}</h2>
-          <input type="text" onChange={handleChange} />
-          <Button colorScheme="blue" onClick={fetchAccount}>
-            Prendre un nouveau Compte
-          </Button>
           <h1>Liste de comptes</h1>
           <Badge>Default</Badge>
           <TableContainer>
@@ -105,6 +99,7 @@ export default function App() {
                 <Tr>
                   <Th>Status</Th>
                   <Th>Account Type</Th>
+                  <Th>Key</Th>
                   <Th>User</Th>
                   <Th>Email</Th>
                   <Th>Password</Th>
@@ -115,9 +110,18 @@ export default function App() {
                   <Tr>
                     <Badge colorScheme="teal">Active</Badge>
                     <Td>{account.account_type}</Td>
+                    <Td id={"Key"}>{account.key}</Td>
                     <Td>{account.discord_user}</Td>
                     <Td>{account.email}</Td>
                     <Td>{account.password}</Td>
+                    <Td>
+                      <Button
+                        colorScheme={"red"}
+                        onClick={() => handleDelete(account.id)}
+                      >
+                        Delete
+                      </Button>
+                    </Td>
                   </Tr>
                 ))}
               </Tbody>
