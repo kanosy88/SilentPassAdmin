@@ -5,6 +5,7 @@ import {
   ChakraProvider,
   Container,
   VStack,
+  HStack,
   Button,
   Table,
   Thead,
@@ -12,7 +13,10 @@ import {
   Tr,
   Th,
   Td,
-  TableContainer
+  TableContainer,
+  Stat,
+  StatLabel,
+  StatNumber,
 } from "@chakra-ui/react";
 import { createClient } from "@supabase/supabase-js";
 
@@ -95,13 +99,13 @@ export default function App() {
             Prendre un nouveau Compte
           </Button>
           <h1>Liste de comptes</h1>
-          <Badge>Default</Badge>
           <TableContainer>
             <Table variant="default" size="sm">
               <Thead>
                 <Tr>
                   <Th>Status</Th>
                   <Th>Account Type</Th>
+                  <Th>Key</Th>
                   <Th>User</Th>
                   <Th>Email</Th>
                   <Th>Password</Th>
@@ -112,9 +116,18 @@ export default function App() {
                   <Tr>
                     <Badge colorScheme="teal">Active</Badge>
                     <Td>{account.account_type}</Td>
+                    <Td id="AccountKeyList">{account.key}</Td>
                     <Td>{account.discord_user}</Td>
                     <Td>{account.email}</Td>
                     <Td>{account.password}</Td>
+                    <Td>
+                      <Button
+                        colorScheme={"red"}
+                        onClick={() => handleDelete(account.id)}
+                      >
+                        Delete
+                      </Button>
+                    </Td>
                   </Tr>
                 ))}
               </Tbody>
