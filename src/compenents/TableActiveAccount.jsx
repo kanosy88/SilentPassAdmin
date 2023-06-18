@@ -2,10 +2,8 @@ import { Table, Thead, Tbody, Tr, Th, TableContainer } from "@chakra-ui/react";
 
 import AccountList from "./AccountList";
 
-export default function TableActiveAccount(props) {
+export default function TableActiveAccount({ accountList, handleDelete }) {
   // state
-  const accountList = props.accountList;
-  const handleDelete = props.handleDelete;
 
   // comportement
 

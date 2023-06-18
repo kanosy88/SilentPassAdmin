@@ -1,9 +1,7 @@
 import { Badge, Button, Tr, Td } from "@chakra-ui/react";
 
-export default function AccountList(props) {
+export default function AccountList({ accountInfo, onAccountDelete }) {
   // state
-  const account = props.accountInfo;
-  const handleDelete = props.onAccountDelete;
 
   // comportement
 
@@ -12,13 +10,16 @@ export default function AccountList(props) {
   return (
     <Tr>
       <Badge colorScheme="teal">Active</Badge>
-      <Td>{account.account_type}</Td>
-      <Td id={"Key"}>{account.key}</Td>
-      <Td>{account.discord_user}</Td>
-      <Td>{account.email}</Td>
-      <Td>{account.password}</Td>
+      <Td>{accountInfo.account_type}</Td>
+      <Td id={"Key"}>{accountInfo.key}</Td>
+      <Td>{accountInfo.discord_user}</Td>
+      <Td>{accountInfo.email}</Td>
+      <Td>{accountInfo.password}</Td>
       <Td>
-        <Button colorScheme={"red"} onClick={() => handleDelete(account.id)}>
+        <Button
+          colorScheme={"red"}
+          onClick={() => onAccountDelete(accountInfo.id)}
+        >
           Delete
         </Button>
       </Td>
